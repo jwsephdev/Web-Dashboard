@@ -16,20 +16,19 @@ function Header() {
 
 
   function ChangeStatus({status , onChange}) {
-    const [statusMenuBar, setOpenMenuBar] = useState(false)
-    const toggleVisibility = () => setOpenMenuBar((prev) => !prev) 
     return (
     <div>
+        <div className="dropdown">
+        <a className="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {status}
+        </a>
 
-      <button onClick={toggleVisibility}>{status}</button>
-
-      {statusMenuBar && (
-        <div> 
-        <button onClick={() => {onChange("Pending"); setOpenMenuBar((prev) => !prev)}}  >Pending</button>
-        <button onClick={() => {onChange("In Progress"); setOpenMenuBar((prev) => !prev)}}  >In Progress</button>
-        <button onClick={() => {onChange("Completed"); setOpenMenuBar((prev) => !prev)}}>Completed</button>
+        <ul className="dropdown-menu">
+          <li><button className="dropdown-item" onClick={() => {onChange("Pending"); setOpenMenuBar((prev) => !prev)}}>Pending</button></li>
+          <li><button className="dropdown-item" onClick={() => {onChange("In Progress"); setOpenMenuBar((prev) => !prev)}}>In Progress</button></li>
+          <li><button className="dropdown-item" onClick={() => {onChange("Completed"); setOpenMenuBar((prev) => !prev)}}>Completed</button></li>
+        </ul>
       </div>
-      )}
     </div>
     )
   } 
