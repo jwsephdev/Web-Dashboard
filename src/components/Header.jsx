@@ -82,6 +82,10 @@ function Header() {
   )
 }
 
+const deleteItem = (index) => {
+  setItems((prev) => prev.filter((_, i) => i !== index))
+}
+
   return(
     <div>
       <nav className='navbar navbar-expand-lg bg-body-tertiary'>
@@ -170,20 +174,16 @@ function Header() {
               <h5 class="card-text mb-0">Location: {item.location}</h5> <br/>
 
               <ChangeStatus status={item.status} onChange={(newStatus) => updateStatus(index, newStatus)}/>
+              
             </div>
             <div className='col'>
               <h5 class="card-text mt-0">Deadline: {item.date}</h5> <br/>
-              
+              <button onClick={() => deleteItem(index)} className="btn btn-danger">Delete</button>
             </div>
           </div>
-          
-          
-          
-          
-          
-            </div>
-            </div>
-           </li>)}
+          </div>
+          </div>
+          </li>)}
       </ol>
       </div>
       </div>
