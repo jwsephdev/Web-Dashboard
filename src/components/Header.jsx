@@ -3,30 +3,31 @@ import { useState } from 'react'
 function Header() {
 
   const [items, setItems] = useState([]);
+
+  
   const [newTitle, setNewTitle] = useState("")
   const [newRole, setNewRole] = useState("")
   const [newLocation, setNewLocation] = useState("")
   const [newDate, setNewDate] = useState("")
 
-
-const pendingCount = items.filter((item) => item.status === "Pending").length
-const inProgressCount = items.filter((item) => item.status === "In Progress").length
-const completedCount = items.filter((item) => item.status === "Completed").length
+  const pendingCount = items.filter((item) => item.status === "Pending").length
+  const inProgressCount = items.filter((item) => item.status === "In Progress").length
+  const completedCount = items.filter((item) => item.status === "Completed").length
 
 
   function ChangeStatus({status , onChange}) {
     const [statusMenuBar, setOpenMenuBar] = useState(false)
     const toggleVisibility = () => setOpenMenuBar((prev) => !prev) 
     return (
-    <div className='flex flex-col'>
+    <div>
 
-      <button className=' bg-green-500 w-40 h-10 rounded hover:bg-green-600 transition-all ease' onClick={toggleVisibility}>{status}</button>
+      <button onClick={toggleVisibility}>{status}</button>
 
       {statusMenuBar && (
-        <div className='flex flex-col w-fit bg-gray-200 rounded-b-2xl'> 
-        <button onClick={() => {onChange("Pending"); setOpenMenuBar((prev) => !prev)}} className=' w-40 h-10 hover:bg-gray-400 transition-all ease' >Pending</button>
-        <button onClick={() => {onChange("In Progress"); setOpenMenuBar((prev) => !prev)}} className=' w-40 h-10 hover:bg-gray-400 transition-all ease' >In Progress</button>
-        <button onClick={() => {onChange("Completed"); setOpenMenuBar((prev) => !prev)}} className=' w-40 h-10 hover:bg-gray-400 transition-all ease'>Completed</button>
+        <div> 
+        <button onClick={() => {onChange("Pending"); setOpenMenuBar((prev) => !prev)}}  >Pending</button>
+        <button onClick={() => {onChange("In Progress"); setOpenMenuBar((prev) => !prev)}}  >In Progress</button>
+        <button onClick={() => {onChange("Completed"); setOpenMenuBar((prev) => !prev)}}>Completed</button>
       </div>
       )}
     </div>
@@ -49,8 +50,6 @@ const completedCount = items.filter((item) => item.status === "Completed").lengt
   setItems((prev) => [...prev, value.trim()]);
   setValue("");
 };
-
-  
 
   const addEntry = () => {
     if (
