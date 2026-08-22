@@ -83,10 +83,16 @@ function Header() {
 }
 
   return(
-    <div className='container'>
-
+    <div>
+      <nav className='navbar navbar-expand-lg bg-body-tertiary'>
+        <div className='container-fluid d-flex justify-content-center'>
+            <h1 className='navbar-brand '>JUST A DASHBOARD</h1>
+        </div>
+        
+      </nav>
+      
       <div className='container'>
-      <div className='input-group mb-3'>
+      <div className='input-group mb-3 mt-3'>
         <span class="input-group-text" id="basic-addon1">Title</span>
         <input 
         className='form-control'
@@ -128,42 +134,53 @@ function Header() {
       value={newDate}
       onChange={(e) => handleInputChange(e, setNewDate)}
       />
-      <button onClick={addEntry} className="btn btn-primary w-50">Add</button>
+      <button onClick={addEntry} className="btn btn-primary w-50">Add Task</button>
       </div>
       </div>
     </div>
 
-    <div className='row m-0 p-0 gap-0'>
-      <div className='col'>
+      <div className='container'>
+      <div className='d-flex justify-content-evenly'>
+
       <h6>Pending: {pendingCount}</h6>
-      </div>
-      <div className='col'>
       <h6>In Progress: {inProgressCount}</h6>
-      </div>
-      <div className='col'>
       <h6>Completed: {completedCount}</h6>
-      </div>
+
     </div>
+    </div>
+    
+    
     <div className='container'>
       
     
 
-      <div className='card'>
+      <div className='card mb-5'>
         <div className="card-body">
         <ol className='list-unstyled'>
         {items.map((item, index) =>
 
-           <li key={index}> 
-           <div className='card mb-5'>
+          <li key={index}> 
+          
+          <div className='card mb-3'>
           <div className="card-body">
-           <h2 className='card-title'>{item.title}</h2> <br/>
-           <h4 className='card-subtitle'>{item.role}</h4> <br/>
-           <p class="card-text">Location: {item.location}</p> <br/>
-           <p class="card-text">Deadline: {item.date}</p> <br/>
-           <ChangeStatus
-              status={item.status}
-              onChange={(newStatus) => updateStatus(index, newStatus)}
-            />
+            <div className='row'>
+              <h2 className='card-title'>{item.title}</h2> <br/>
+              <h5 className='card-subtitle'>{item.role}</h5> <br/>
+            <div className='col'>
+              <h5 class="card-text mb-0">Location: {item.location}</h5> <br/>
+
+              <ChangeStatus status={item.status} onChange={(newStatus) => updateStatus(index, newStatus)}/>
+            </div>
+            <div className='col'>
+              <h5 class="card-text mt-0">Deadline: {item.date}</h5> <br/>
+              
+            </div>
+          </div>
+          
+          
+          
+          
+          
             </div>
             </div>
            </li>)}
