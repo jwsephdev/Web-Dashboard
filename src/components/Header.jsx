@@ -83,62 +83,90 @@ function Header() {
 }
 
   return(
-    <div>
-      
+    <div className='container'>
+      <div className='container'>
+      <div className='input-group'>
+        <span class="input-group-text" id="basic-addon1">Title</span>
+        <input 
+        className='form-control'
+        type='text'
+        placeholder='Title..'
+        value={newTitle}
+        onChange={(e) => handleInputChange(e, setNewTitle)}
+        />
+      </div>
 
-      <input type='text'
-       placeholder='Title..'
-       value={newTitle}
-       onChange={(e) => handleInputChange(e, setNewTitle)}
+
+      <div className='input-group'>
+      <span class="input-group-text" id="basic-addon1">Role</span>
+      <input 
+      className='form-control'
+      type='text'
+      placeholder='Role..'
+      value={newRole}
+      onChange={(e) => handleInputChange(e, setNewRole)}
       />
 
-      <input type='text'
-       placeholder='Role..'
-       value={newRole}
-       onChange={(e) => handleInputChange(e, setNewRole)}
-      />
-
-      <input type='text'
+      <span class="input-group-text" id="basic-addon1">Location</span>
+      <input
+      className='form-control'
+      type='text'
        placeholder='Location..'
        value={newLocation}
        onChange={(e) => handleInputChange(e, setNewLocation)}
       />
+      </div>
 
-      <p>Deadline:</p>
+      <div className='input-group'>
+      <span class="input-group-text" id="basic-addon1">Deadline</span>
 
-      <input type='date'
+      <input 
+      className='form-control'
+      type='date'
       value={newDate}
       onChange={(e) => handleInputChange(e, setNewDate)}
       className='[&::-webkit-calendar-picker-indicator]:hidden'
       />
-
-      <button onClick={addEntry}>Add</button>
-
-
-    <div>
-      <h1>Pending: {pendingCount}</h1>
-      <h1>In Progress: {inProgressCount}</h1>
-      <h1>Completed: {completedCount}</h1>
+      </div>
+      <div className='text-center'>
+        <button onClick={addEntry} className="btn btn-primary w-25">Add</button>
+      </div>
+      
     </div>
-      <div>
+
+    <div className='row m-0 p-0 gap-0'>
+      <div className='col'>
+      <h6>Pending: {pendingCount}</h6>
+      </div>
+      <div className='col'>
+      <h6>In Progress: {inProgressCount}</h6>
+      </div>
+      <div className='col'>
+      <h6>Completed: {completedCount}</h6>
+      </div>
+    </div>
+    <div className='container'>
+      
+    
+
+      <div className='card'>
+        <div className="card-body">
         <ol>
         {items.map((item, index) =>
            <li key={index}> 
-           <span>Title: {item.title}</span> <br/>
-           <span>Role: {item.role}</span> <br/>
-           <span>Location: {item.location}</span> <br/>
-           <span>Deadline: {item.date}</span> <br/>
+           <h3 className='card-title'>{item.title}</h3> <br/>
+           <h4 className='card-subtitle text-body-secondary'>{item.role}</h4> <br/>
+           <p class="card-text">Location: {item.location}</p> <br/>
+           <p class="card-text">Deadline: {item.date}</p> <br/>
            <ChangeStatus
               status={item.status}
               onChange={(newStatus) => updateStatus(index, newStatus)}
             />
-
-
            </li>)}
-          
       </ol>
       </div>
-
+      </div>
+    </div>
     </div>
   )
 }
