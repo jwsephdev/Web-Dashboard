@@ -84,8 +84,9 @@ function Header() {
 
   return(
     <div className='container'>
+
       <div className='container'>
-      <div className='input-group'>
+      <div className='input-group mb-3'>
         <span class="input-group-text" id="basic-addon1">Title</span>
         <input 
         className='form-control'
@@ -97,7 +98,7 @@ function Header() {
       </div>
 
 
-      <div className='input-group'>
+      <div className='input-group mb-3'>
       <span class="input-group-text" id="basic-addon1">Role</span>
       <input 
       className='form-control'
@@ -117,21 +118,19 @@ function Header() {
       />
       </div>
 
-      <div className='input-group'>
+      <div className='mb-3'>
+      <div className='input-group date'>
       <span class="input-group-text" id="basic-addon1">Deadline</span>
-
       <input 
-      className='form-control'
+      className='form-control form-control-sm'
+      id='dateIcon'
       type='date'
       value={newDate}
       onChange={(e) => handleInputChange(e, setNewDate)}
-      className='[&::-webkit-calendar-picker-indicator]:hidden'
       />
+      <button onClick={addEntry} className="btn btn-primary w-50">Add</button>
       </div>
-      <div className='text-center'>
-        <button onClick={addEntry} className="btn btn-primary w-25">Add</button>
       </div>
-      
     </div>
 
     <div className='row m-0 p-0 gap-0'>
@@ -151,17 +150,22 @@ function Header() {
 
       <div className='card'>
         <div className="card-body">
-        <ol>
+        <ol className='list-unstyled'>
         {items.map((item, index) =>
+
            <li key={index}> 
-           <h3 className='card-title'>{item.title}</h3> <br/>
-           <h4 className='card-subtitle text-body-secondary'>{item.role}</h4> <br/>
+           <div className='card mb-5'>
+          <div className="card-body">
+           <h2 className='card-title'>{item.title}</h2> <br/>
+           <h4 className='card-subtitle'>{item.role}</h4> <br/>
            <p class="card-text">Location: {item.location}</p> <br/>
            <p class="card-text">Deadline: {item.date}</p> <br/>
            <ChangeStatus
               status={item.status}
               onChange={(newStatus) => updateStatus(index, newStatus)}
             />
+            </div>
+            </div>
            </li>)}
       </ol>
       </div>
