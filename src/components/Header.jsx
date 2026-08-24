@@ -101,11 +101,11 @@ const deleteItem = (index) => {
       
       <div className='container'>
       <div className='input-group mb-3 mt-3'>
-        <span class="input-group-text" id="basic-addon1">Title</span>
+        <span class="input-group-text" id="basic-addon1">Title <span className='text-secondary'>(Required)</span></span>
         <input 
         className='form-control'
         type='text'
-        placeholder='Title..(Required)'
+        placeholder='Title..'
         value={newTitle}
         onChange={(e) => handleInputChange(e, setNewTitle)}
         />
@@ -113,15 +113,37 @@ const deleteItem = (index) => {
 
 
       <div className='input-group mb-3'>
-      <span class="input-group-text" id="basic-addon1">Role</span>
+      <span class="input-group-text" id="basic-addon1">Role<span className='text-secondary'>(Required)</span></span>
       <input 
       className='form-control'
       type='text'
-      placeholder='Role..(Required)'
+      placeholder='Role..'
       value={newRole}
       onChange={(e) => handleInputChange(e, setNewRole)}
       />
 
+      
+      </div>
+
+      <div className='d-flex flex-sm-row flex-column'>
+
+        <div className='d-flex flex-row flex-sm-column col-6 mb-3'>
+
+        <div className='input-group date'>
+        <span class="input-group-text" id="basic-addon1">Deadline<span className='text-secondary'>(Required)</span></span>
+        <input 
+        className='form-control form-control-sm'
+        id='dateIcon'
+        type='date'
+        value={newDate}
+        onChange={(e) => handleInputChange(e, setNewDate)}
+        />
+      
+      </div>
+      </div>
+
+      <div className='d-flex flex-row flex-sm-column col-6'>
+        <div className='input-group mb-3'>
       <span class="input-group-text" id="basic-addon1">Location</span>
       <input
       className='form-control'
@@ -131,33 +153,32 @@ const deleteItem = (index) => {
        onChange={(e) => handleInputChange(e, setNewLocation)}
       />
       </div>
-
-      <div className='mb-3'>
-      <div className='input-group date'>
-      <span class="input-group-text" id="basic-addon1">Deadline(Required)</span>
-      <input 
-      className='form-control form-control-sm'
-      id='dateIcon'
-      type='date'
-      value={newDate}
-      onChange={(e) => handleInputChange(e, setNewDate)}
-      />
-      <button onClick={addEntry} className="btn btn-primary w-50">Add Task</button>
       </div>
+      
+
+
+     
+      
+      </div>
+      <div className='d-flex justify-content-center mb-5'>
+        <button onClick={addEntry} className="btn btn-primary w-50">Add Task</button>
       </div>
     </div>
 
+
       <div className='container'>
-      <div className='d-flex flex-column flex-sm-row justify-content-evenly '>
+      <div className='d-flex flex-column flex-sm-row justify-content-evenly'>
 
       <p>Pending:{pendingCount}</p>
       <p>In Progress:{inProgressCount}</p>
       <p>Completed:{completedCount}</p>
 
     </div>
-    <hr />
     </div>
     
+    <div className='container'>
+        <hr />
+    </div>
     
     <div className='container'>
       
