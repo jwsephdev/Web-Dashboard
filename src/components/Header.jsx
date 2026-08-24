@@ -165,19 +165,19 @@ const deleteItem = (index) => {
 
           <li key={index}> 
           
-          <div className='card mb-3'>
+          <div className='card m-3'>
           <div className="card-body">
-            <div className='row'>
-              <h2 className='card-title'>{item.title}</h2> <br/>
-              <h5 className='card-subtitle'>{item.role}</h5> <br/>
-            <div className='col'>
-              <h5 class="card-text mb-0">Location: {item.location}</h5> <br/>
+            <div className='row mb-2 gap-0'>
 
+              <h2 className='card-title mb-2'>{item.title}</h2> <br/>
+              <h5 className='card-subtitle mb-1'>{item.role}</h5> <br/>
+              <h5 className="card-text mb-1">Deadline: {item.date}</h5> <br/>
+              <h5 className="card-text">Location: {item.location}</h5> <br/>
+
+            <div className='col'>
               <ChangeStatus status={item.status} onChange={(newStatus) => updateStatus(index, newStatus)}/>
-              
             </div>
             <div className='col'>
-              <h5 class="card-text mt-0">Deadline: {item.date}</h5> <br/>
               <button onClick={() => deleteItem(index)} className="btn btn-danger">Delete</button>
             </div>
           </div>
