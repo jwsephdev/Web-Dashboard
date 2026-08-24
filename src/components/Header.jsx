@@ -105,7 +105,7 @@ const deleteItem = (index) => {
         <input 
         className='form-control'
         type='text'
-        placeholder='Title..'
+        placeholder='Title..(Required)'
         value={newTitle}
         onChange={(e) => handleInputChange(e, setNewTitle)}
         />
@@ -117,7 +117,7 @@ const deleteItem = (index) => {
       <input 
       className='form-control'
       type='text'
-      placeholder='Role..'
+      placeholder='Role..(Required)'
       value={newRole}
       onChange={(e) => handleInputChange(e, setNewRole)}
       />
@@ -134,7 +134,7 @@ const deleteItem = (index) => {
 
       <div className='mb-3'>
       <div className='input-group date'>
-      <span class="input-group-text" id="basic-addon1">Deadline</span>
+      <span class="input-group-text" id="basic-addon1">Deadline(Required)</span>
       <input 
       className='form-control form-control-sm'
       id='dateIcon'
