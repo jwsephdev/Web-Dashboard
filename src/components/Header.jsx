@@ -127,7 +127,7 @@ const deleteItem = (index) => {
 
       <div className='d-flex flex-sm-row flex-column'>
 
-        <div className='d-flex flex-row flex-sm-column col-6 mb-3'>
+        <div className='d-flex flex-row flex-sm-column col-sm-6 mb-3'>
 
         <div className='input-group date'>
         <span class="input-group-text" id="basic-addon1">Deadline<span className='text-secondary'>(Required)</span></span>
@@ -142,7 +142,7 @@ const deleteItem = (index) => {
       </div>
       </div>
 
-      <div className='d-flex flex-row flex-sm-column col-6'>
+      <div className='d-flex flex-row flex-sm-column col-sm-6'>
         <div className='input-group mb-3'>
       <span class="input-group-text" id="basic-addon1">Location</span>
       <input
@@ -167,7 +167,7 @@ const deleteItem = (index) => {
 
 
       <div className='container'>
-      <div className='d-flex flex-column flex-sm-row justify-content-evenly'>
+      <div className='d-flex flex-column align-items-center align-items-sm-stretch flex-sm-row justify-content-center justify-content-sm-evenly '>
 
       <p>Pending:{pendingCount}</p>
       <p>In Progress:{inProgressCount}</p>
