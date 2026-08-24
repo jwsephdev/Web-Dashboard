@@ -1,6 +1,6 @@
 @font-face {
     font-family: Roboto;
-    src: url('../../public/fonts/RobotoMono-Regular.ttf');
+    src: url('/fonts/RobotoMono-Regular.ttf');
 }
 
 * {

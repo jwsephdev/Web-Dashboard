@@ -146,9 +146,9 @@ const deleteItem = (index) => {
       <div className='container'>
       <div className='d-flex justify-content-evenly'>
 
-      <h6>Pending: {pendingCount}</h6>
-      <h6>In Progress: {inProgressCount}</h6>
-      <h6>Completed: {completedCount}</h6>
+      <h6>Pending:{pendingCount}|</h6>
+      <h6>In Progress:{inProgressCount}|</h6>
+      <h6>Completed:{completedCount}|</h6>
 
     </div>
     </div>
