@@ -95,6 +95,10 @@ const deleteItem = (index) => {
         
       </nav>
       
+      <div className='d-flex justify-content-center m-3'>
+        <h2>Create a task...</h2>
+      </div>
+      
       <div className='container'>
       <div className='input-group mb-3 mt-3'>
         <span class="input-group-text" id="basic-addon1">Title</span>
@@ -144,13 +148,14 @@ const deleteItem = (index) => {
     </div>
 
       <div className='container'>
-      <div className='d-flex justify-content-evenly'>
+      <div className='d-flex flex-column flex-sm-row justify-content-evenly '>
 
-      <h6>Pending:{pendingCount}|</h6>
-      <h6>In Progress:{inProgressCount}|</h6>
-      <h6>Completed:{completedCount}|</h6>
+      <p>Pending:{pendingCount}</p>
+      <p>In Progress:{inProgressCount}</p>
+      <p>Completed:{completedCount}</p>
 
     </div>
+    <hr />
     </div>
     
     
