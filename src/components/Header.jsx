@@ -156,30 +156,33 @@ const deleteItem = (index) => {
     
     <div className='container'>
       
-    
-
-      <div className='card mb-5'>
-        <div className="card-body">
+      <div>
+        <div>
         <ol className='list-unstyled'>
         {items.map((item, index) =>
 
           <li key={index}> 
           
-          <div className='card m-3'>
+          <div className='card w-auto mb-3 mt-3 border-1 bg-body-tertiary'>
           <div className="card-body">
-            <div className='row mb-2 gap-0'>
+            <div className='row'>
 
               <h2 className='card-title mb-2'>{item.title}</h2> <br/>
               <h5 className='card-subtitle mb-1'>{item.role}</h5> <br/>
               <h5 className="card-text mb-1">Deadline: {item.date}</h5> <br/>
               <h5 className="card-text">Location: {item.location}</h5> <br/>
 
-            <div className='col'>
-              <ChangeStatus status={item.status} onChange={(newStatus) => updateStatus(index, newStatus)}/>
+            <div className='d-flex'>
+              <div className='col'>
+                <ChangeStatus status={item.status} onChange={(newStatus) => updateStatus(index, newStatus)}/>
+              </div>
+              <div className='col'>
+                  <button onClick={() => deleteItem(index)} className="btn btn-danger">Delete</button>
+              </div>
             </div>
-            <div className='col'>
-              <button onClick={() => deleteItem(index)} className="btn btn-danger">Delete</button>
-            </div>
+            
+
+
           </div>
           </div>
           </div>
